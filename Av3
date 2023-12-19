@@ -1,0 +1,25 @@
+
+
+import javax.swing.JOptionPane;
+
+public class SomaSerie {
+
+  public static void main(String[] args) {
+    // Obtém o valor de N do usuário
+    String input = JOptionPane.showInputDialog("Digite o valor de N:");
+    int N = Integer.parseInt(input);
+
+    // Calcula a soma da série usando a função recursiva
+    double soma = somaSerie(1, N);
+
+    // Mostra o resultado na tela
+    JOptionPane.showMessageDialog(null, "A soma da série é: " + soma);
+  }
+
+  public static double somaSerie(int k, int N) {
+    if (k > N) {
+      return 0;
+    }
+    return 1.0 / (2 * k) + somaSerie(k + 1, N);
+  }
+}
