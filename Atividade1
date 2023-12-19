@@ -1,0 +1,34 @@
+
+import javax.swing.JOptionPane;
+
+public class Pedagio {
+
+    public static void main(String[] args) {
+        // Criar um vetor para armazenar os registros do mês de setembro
+        int[] registros = new int[30];
+
+        // Criar uma variável para armazenar o maior volume de carros
+        int maiorVolume = 0;
+
+        // Criar uma variável para armazenar o dia em que ocorreu o maior volume
+        int diaMaiorVolume = 0;
+
+        // Ler cada registro do mês de setembro usando JOptionpane
+        for (int i = 0; i < registros.length; i++) {
+            // Obter o número de carros que passaram no dia i+1
+            String input = JOptionPane.showInputDialog("Digite o número de carros que passaram no dia " + (i + 1) + " de setembro:");
+            // Converter o input em um inteiro e armazenar no vetor
+            registros[i] = Integer.parseInt(input);
+
+            // Comparar o registro com o maior volume atual
+            if (registros[i] > maiorVolume) {
+                // Atualizar o maior volume e o dia correspondente
+                maiorVolume = registros[i];
+                diaMaiorVolume = i + 1;
+            }
+        }
+
+        // Mostrar o resultado usando JOptionpane
+        JOptionPane.showMessageDialog(null, "O maior volume de carros ocorreu no dia " + diaMaiorVolume + " e foi de " + maiorVolume + " carros.");
+    }
+}
