@@ -1,0 +1,30 @@
+Questão 8
+
+
+import javax.swing.JOptionPane;
+
+public class HighestGrade {
+    public static void main(String[] args) {
+        double[][] grades = new double[5][4];
+
+        // Read grades
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 4; j++) {
+                grades[i][j] = Double.parseDouble(JOptionPane.showInputDialog("Enter the grade of student " + (i + 1) + " in subject " + (j + 1)));
+            }
+        }
+
+        // Find highest grade
+        double highestGrade = grades[0][0];
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (grades[i][j] > highestGrade) {
+                    highestGrade = grades[i][j];
+                }
+            }
+        }
+
+        // Display highest grade
+        JOptionPane.showMessageDialog(null, "The highest grade is " + highestGrade);
+    }
+}
