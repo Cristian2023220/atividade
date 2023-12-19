@@ -1,0 +1,27 @@
+
+import javax.swing.JOptionPane;
+
+public class Pedagio {
+
+    public static void main(String[] args) {
+        int[] registros = new int[30];
+        int maiorVolume = 0;
+        int diaMaiorVolume = 0;
+        int menorVolume = Integer.MAX_VALUE;
+        int diaMenorVolume = 0;
+        for (int i = 0; i < registros.length; i++) {
+            String input = JOptionPane.showInputDialog("Digite o número de carros que passaram no dia " + (i + 1) + " de setembro:");
+            registros[i] = Integer.parseInt(input);
+            if (registros[i] > maiorVolume) {
+                maiorVolume = registros[i];
+                diaMaiorVolume = i + 1;
+            }
+            if (registros[i] < menorVolume) {
+                menorVolume = registros[i];
+                diaMenorVolume = i + 1;
+            }
+        }
+        JOptionPane.showMessageDialog(null, "O maior volume de carros ocorreu no dia " + diaMaiorVolume + " e foi de " + maiorVolume + " carros.");
+        JOptionPane.showMessageDialog(null, "O menor volume de carros ocorreu no dia " + diaMenorVolume + " e foi de " + menorVolume + " carros.");
+    }
+}
