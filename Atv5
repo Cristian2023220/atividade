@@ -1,0 +1,37 @@
+
+
+import javax.swing.JOptionPane;
+
+public class MatrizExample {
+
+    public static void main (String [] args) {
+        // Obter o valor de N do usuário
+        String input = JOptionPane.showInputDialog ("Digite o valor de N:");
+        int N = Integer.parseInt (input);
+
+        // Criar uma matriz NxN
+        int [][] matriz = new int [N] [N];
+
+        // Preencher a matriz com os valores adequados
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                // O valor de cada elemento é igual ao menor valor entre i, j, N-i-1 e N-j-1, mais um
+                matriz [i] [j] = Math.min (Math.min (i, j), Math.min (N-i-1, N-j-1)) + 1;
+            }
+        }
+
+        // Criar uma string para exibir a matriz
+        String display = "";
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                // Adicionar cada elemento da matriz à string, separados por espaços
+                display += matriz [i] [j] + " ";
+            }
+            // Adicionar uma quebra de linha após cada linha da matriz
+            display += "\n";
+        }
+
+        // Exibir a matriz usando JOptionPane
+        JOptionPane.showMessageDialog (null, display, "Matriz", JOptionPane.PLAIN_MESSAGE);
+    }
+}
