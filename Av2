@@ -1,0 +1,18 @@
+
+
+import javax.swing.JOptionPane;
+
+public class ExibirValores {
+
+    public static void exibir(int n) {
+        if (n > 1000) {
+            return;
+        }
+        JOptionPane.showMessageDialog(null, n * n);
+        exibir(n + 3);
+    }
+
+    public static void main(String[] args) {
+        exibir(1);
+    }
+}
