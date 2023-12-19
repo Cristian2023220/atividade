@@ -1,0 +1,40 @@
+import javax.swing.JOptionPane;
+
+public class NotasAluno {
+    public static void main(String[] args) {
+        double[][] notas = new double[5][4];
+        double notaMaisAlta = 0;
+        int disciplinaMaisAlta = 0;
+        int indiceDisciplinaMaisAlta = 0;
+
+        // Ler as notas do aluno
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 4; j++) {
+                String input = JOptionPane.showInputDialog("Digite a nota " + (j + 1) + " da disciplina " + (i + 1));
+                notas[i][j] = Double.parseDouble(input);
+
+                // Encontrar a nota mais alta em cada disciplina
+                if (notas[i][j] > notaMaisAlta) {
+                    notaMaisAlta = notas[i][j];
+                    disciplinaMaisAlta = i + 1;
+                }
+
+                // Atualizar o índice da disciplina com a nota mais alta
+                if (notas[i][j] == notaMaisAlta) {
+                    indiceDisciplinaMaisAlta = i + 1;
+                }
+            }
+        }
+
+        // Encontrar a nota mais alta geral
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (notas[i][j] > notaMaisAlta) {
+                    notaMaisAlta = notas[i][j];
+                }
+            }
+        }
+
+        JOptionPane.showMessageDialog(null, "A nota mais alta foi " + notaMaisAlta + " na disciplina " + disciplinaMaisAlta + ", que é a disciplina " + indiceDisciplinaMaisAlta);
+    }
+}
