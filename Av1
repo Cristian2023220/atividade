@@ -1,0 +1,26 @@
+
+
+import javax.swing.JOptionPane;
+
+public class Volquis {
+
+    public static int[] lerProducao(int dia, int total, int minimo) {
+        int producao = Integer.parseInt(JOptionPane.showInputDialog("Informe a produção do dia " + dia + " ou -1 para encerrar:"));
+        if (producao == -1) {
+            return new int[]{total, minimo};
+        }
+        if (producao == 0) {
+            return lerProducao(dia + 1, total, minimo);
+        }
+        total += producao;
+        if (producao < minimo) {
+            minimo = producao;
+        }
+        return lerProducao(dia + 1, total, minimo);
+    }
+
+    public static void main(String[] args) {
+        int[] resultado = lerProducao(1, 0, 0);
+        JOptionPane.showMessageDialog(null, "A quantidade produzida no ano todo foi: " + resultado[0] + "\nA menor produção diária foi: " + resultado[1]);
+    }
+}
