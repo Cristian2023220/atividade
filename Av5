@@ -1,0 +1,22 @@
+
+import javax.swing.JOptionPane;
+
+public class PotenciaQuinta {
+
+    public static int quintaPotencia(int n) {
+        if (n == 0) {
+            return 0;
+        } else if (n == 1) {
+            return 1;
+        } else {
+            return n * quintaPotencia(n - 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        String input = JOptionPane.showInputDialog("Digite um número:");
+        int numero = Integer.parseInt(input);
+        int resultado = quintaPotencia(numero);
+        JOptionPane.showMessageDialog(null, "O número " + numero + " elevado a quinta potência é " + resultado);
+    }
+}
