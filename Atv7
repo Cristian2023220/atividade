@@ -1,0 +1,28 @@
+
+import javax.swing.JOptionPane;
+
+public class AveragePrice {
+    public static void main(String[] args) {
+        double[][] prices = new double[15][2];
+        double[] averagePrices = new double[15];
+
+        // Read prices
+        for (int i = 0; i < 15; i++) {
+            for (int j = 0; j < 2; j++) {
+                prices[i][j] = Double.parseDouble(JOptionPane.showInputDialog("Enter the price of product " + (i + 1) + " at the beginning of the week (1) and at the end of the week (2)"));
+            }
+        }
+
+        // Calculate average prices
+        for (int i = 0; i < 15; i++) {
+            averagePrices[i] = (prices[i][0] + prices[i][1]) / 2;
+        }
+
+        // Display average prices
+        String output = "Average prices:\n";
+        for (int i = 0; i < 15; i++) {
+            output += "Product " + (i + 1) + ": " + averagePrices[i] + "\n";
+        }
+        JOptionPane.showMessageDialog(null, output);
+    }
+}
