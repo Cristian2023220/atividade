@@ -1,0 +1,27 @@
+
+import javax.swing.JOptionPane;
+
+public class CalculaPI {
+
+    // Método recursivo que calcula o valor de um termo da série
+    public static double termo(int n, int sinal) {
+        if (n == 1) { // Caso base: primeiro termo é 4
+            return 4.0;
+        } else { // Caso recursivo: soma ou subtrai o próximo termo
+            return sinal * 4.0 / (2 * n - 1) + termo(n - 1, -sinal);
+        }
+    }
+
+    // Método principal que obtém o número de termos da série do usuário e mostra o resultado
+    public static void main(String[] args) {
+        // Obter o número de termos da série do usuário usando JOptionPane
+        String input = JOptionPane.showInputDialog("Digite o número de termos da série para calcular PI:");
+        int n = Integer.parseInt(input); // Converter a entrada em um inteiro
+
+        // Chamar o método recursivo para calcular o valor aproximado de PI usando a série
+        double pi = termo(n, -1);
+
+        // Mostrar o resultado usando JOptionPane
+        JOptionPane.showMessageDialog(null, "O valor aproximado de PI usando " + n + " termos da série é: " + pi);
+    }
+}
