@@ -1,0 +1,31 @@
+
+import javax.swing.JOptionPane;
+
+public class Algoritmo {
+    public static void main(String[] args) {
+        // Cria uma variável A que armazena um array de 5 valores
+        int[] A = new int[5];
+        // Chama a função recursiva para ler os valores e contar os negativos
+        int negativos = lerValores(A, 0);
+        // Mostra o resultado usando JOptionpane
+        JOptionPane.showMessageDialog(null, "Dos 5 valores lidos, " + negativos + " são negativos.");
+    }
+
+    // Função recursiva que lê um valor para cada posição do array A e retorna o número de negativos
+    public static int lerValores(int[] A, int i) {
+        // Caso base: se o índice i for igual ao tamanho do array, retorna 0
+        if (i == A.length) {
+            return 0;
+        }
+        // Caso recursivo: lê um valor usando JOptionpane e armazena na posição i do array A
+        A[i] = Integer.parseInt(JOptionPane.showInputDialog("Digite um valor para A[" + i + "]:"));
+        // Se o valor for negativo, incrementa 1 ao resultado da chamada recursiva para o próximo índice
+        if (A[i] < 0) {
+            return 1 + lerValores(A, i + 1);
+        }
+        // Se o valor não for negativo, retorna o resultado da chamada recursiva para o próximo índice
+        else {
+            return lerValores(A, i + 1);
+        }
+    }
+}
