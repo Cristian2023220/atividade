@@ -1,0 +1,19 @@
+
+import javax.swing.JOptionPane;
+
+public class SomaSerie {
+
+    public static double somaSerie(int n, int i) {
+        if (n == 0) {
+            return 0;
+        }
+        return (double) i / (11 * i + 1) + somaSerie(n - 1, i + 1);
+    }
+
+    public static void main(String[] args) {
+        String input = JOptionPane.showInputDialog("Digite a quantidade de termos da série:");
+        int n = Integer.parseInt(input);
+        double soma = somaSerie(n, 1);
+        JOptionPane.showMessageDialog(null, "A soma da série é: " + soma);
+    }
+}
