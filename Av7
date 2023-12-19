@@ -1,0 +1,37 @@
+
+//Algoritmo para praticar repetições
+import javax.swing.JOptionPane;
+
+public class Repeticoes {
+
+    //Método recursivo que calcula o quadrado de um número
+    public static int quad(int n) {
+        return n * n;
+    }
+
+    //Método recursivo que imprime os valores de I e X, e incrementa I em 2
+    public static void repetir(int i) {
+        //Condição de parada: I >= 20
+        if (i >= 20) {
+            JOptionPane.showMessageDialog(null, "Ufa, cheguei aqui");
+            return;
+        }
+        //Cálculo de X
+        int x = quad(i);
+        //Impressão dos valores de I e X
+        JOptionPane.showMessageDialog(null, i + ", " + x);
+        //Incremento de I em 2
+        i = i + 2;
+        //Impressão da mensagem "Passei por aqui"
+        JOptionPane.showMessageDialog(null, "Passei por aqui");
+        //Chamada recursiva do método
+        repetir(i);
+    }
+
+    public static void main(String[] args) {
+        //Inicialização de I como 1
+        int i = 1;
+        //Chamada do método recursivo
+        repetir(i);
+    }
+}
