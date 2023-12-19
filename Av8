@@ -1,0 +1,25 @@
+
+//Algoritmo para praticar repetições usando recursividade
+public class ImprimirValores {
+
+    //Método recursivo que recebe X e Y como parâmetros
+    public static void imprimir(int x, int y) {
+        //Condição de parada: se X for maior ou igual a 10, termina a recursão
+        if (x >= 10) {
+            return;
+        }
+        //Imprime os valores de X e Y
+        System.out.println("X = " + x + " Y = " + y);
+        //Chama o método novamente com X incrementado e Y decrementado
+        imprimir(x + 1, y - 1);
+    }
+
+    //Método principal que chama o método recursivo com os valores iniciais de X e Y
+    public static void main(String[] args) {
+        //Valores iniciais de X e Y
+        int x = 0;
+        int y = 30;
+        //Chama o método recursivo
+        imprimir(x, y);
+    }
+}
