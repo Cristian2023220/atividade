@@ -1,0 +1,32 @@
+import javax.swing.JOptionPane;
+
+public class Cheques {
+    public static void main(String[] args) {
+        int numCheques = Integer.parseInt(JOptionPane.showInputDialog("Digite o número de cheques usados no mês: "));
+        double[] valoresCheques = new double[numCheques];
+        double maiorValor = 0;
+        double menorValor = Double.MAX_VALUE;
+
+        // Ler os valores dos cheques
+        for (int i = 0; i < numCheques; i++) {
+            String input = JOptionPane.showInputDialog("Digite o valor do cheque " + (i + 1));
+            valoresCheques[i] = Double.parseDouble(input);
+
+            // Encontrar o maior e o menor valor
+            if (valoresCheques[i] > maiorValor) {
+                maiorValor = valoresCheques[i];
+            }
+            if (valoresCheques[i] < menorValor) {
+                menorValor = valoresCheques[i];
+            }
+        }
+
+        // Imprimir a lista com todos os valores, o maior e o menor valor
+        String listaValores = "Lista de valores dos cheques: ";
+        for (int i = 0; i < numCheques; i++) {
+            listaValores += valoresCheques[i] + ", ";
+        }
+        listaValores = listaValores.substring(0, listaValores.length() - 2);
+        JOptionPane.showMessageDialog(null, listaValores + "\nMaior valor: " + maiorValor + "\nMenor valor: " + menorValor);
+    }
+}
